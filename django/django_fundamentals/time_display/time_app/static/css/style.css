@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: blue;
+}
+
+h1 {
+    color: red;
+    font-size: 100px;
+}
+
+h2 {
+    color: purple;
+    font-size: 75px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='my_style.css') }}"> -->
+
+
+    <style>  /*to use the stylesheet comment the style tags and uncomment the link tag save and refresh*/
+        #checkerboard{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .color1{
+            
+            width: 100px; 
+            height: 100px;        
+            background-color: {{color_first}};
+        }    
+        .color2 {
+            width: 100px; 
+            height: 100px;       
+            background-color: {{color_second}};
+        }
+    </style>
+</head>
+<body>
+    <table id="checkerboard">
+        {% for i in range(num_rows) %}
+            <tr>
+                {% for i in range(num_column) %}
+                    <td class="color1"></td>
+                    <td class="color2"></td>
+                {% endfor %}
+            </tr> 
+            <tr>
+                {% for i in range(num_column) %}
+                    <td class="color2"></td>
+                    <td class="color1"></td>
+                {% endfor %}
+            </tr> 
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

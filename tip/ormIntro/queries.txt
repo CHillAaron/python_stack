@@ -1,0 +1,9 @@
+>>> from ormIntroApp.models import Product
+>>> Product.objects.create(name = "Studio Mic", price = '289.99', description = "To channel my inner Kanye (he's the goat by the way)")
+
+Product.objects.create(name = "Dre PowerBeats headphones", price = '200.00', description = "Best headphones of all time for working out")
+Product.objects.create(name = "Rick and Morty T shirts", price = '19.99', description = "Good show to watch")
+
+
+>>> Product.objects.all()
+

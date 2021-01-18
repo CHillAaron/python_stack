@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static  '/css/styles.css' %}">
+    
+</head>
+<body>
+    <header>
+        <h1>Success Welcome {{loggedIn.first}}</h1>
+        <a href="logoutVal">Log Out</a>
+    </header>
+
+    {% if messages %}
+        <ul>
+            {% for x in messages %}
+            <li style= "color:red";>{{x}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div id='blog'>
+        <h2>What is on your mind?</h2>
+
+            <form action="/newPost" method="post" id="postForm">
+                {%csrf_token%}
+                <p>What are you thinking?<textarea name="body" cols="30" rows="10"></textarea></p>
+                <input type="submit" value="submit">
+            </form>
+    </div>
+        <table>
+            <div class="posts" id="my_posts">
+                
+            </div>  
+        </table>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

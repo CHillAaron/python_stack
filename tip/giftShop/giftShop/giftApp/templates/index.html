@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Gift your family and Friends some ...gifts</h1>
+    <form action="/sendBlessings" method="post">
+        {% csrf_token %}
+       <p>Recipient: <input type="text" name="reciepient"  id=""></p> 
+       <p>Your not-soSecret Santa: <input type="text" name="giver" id=""></p>
+       <p>Select a gift from our inventory: </p>
+       <select name="shoeChoice" id="">
+           <option value="addidas basketball shoes">Addidas Basketball shoes</option>
+           <option value="Nike lebron shoes">Nike Lebron Shoes</option>
+           <option value="Underarmour Curry Shoes">UnderArmour Steph Curry Shoes</option>
+           <option value="Flanders Pro Elite">New Balance Flanders from Simpsons Shoes</option>
+           <option value="Shaq Diesels">Shaq Shoes from payless</option>
+       </select>
+       <p>Note:</p>
+       <textarea name="message" id="" cols="30" rows="10"></textarea>
+       <input type="submit" value="Send Gift">
+      
+    </form>
+</body>
+</html>

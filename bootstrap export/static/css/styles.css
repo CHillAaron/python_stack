@@ -1,0 +1,27 @@
+.container {
+  margin-top: 20px;
+  max-height: none;
+}
+
+.btn.btn-primary.border.rounded-pill.d-flex.float-right.align-content-end.justify-content-lg-center.align-items-lg-start {
+  margin-top: 0px;
+}
+
+.btn.btn-primary.dropdown-toggle {
+}
+
+.flex-fill.blogPost {
+  margin-bottom: 20px;
+}
+
+.updateForm {
+  margin-bottom: 20px;
+}
+
+.row.editBody {
+  margin-top: 20px;
+}
+
+.form-control {
+}
+

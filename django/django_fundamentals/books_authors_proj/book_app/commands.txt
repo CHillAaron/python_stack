@@ -1,0 +1,3 @@
+{% for x in books %}
+    <h2>{{x.title}}</h2>
+{% endfor %}

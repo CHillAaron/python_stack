@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Wazzzaaaaa  {{x}}</h1>
+    <h3>Ramen Count: {{r}} </h3>
+    <p>Here are my favorite meals:</p>
+    
+    {{meals}}
+    <ul>
+        {%  for x in meals %}
+        <!-- show x only IF x is equal to 'ramen' -->
+            {% if x == 'Ramen' %}
+                <li>{{x}}</li>
+            {% elif x == 'Pbj' %}
+                <li>ITS PEANUT BUTTA JELLY TIME!</li>
+            {% else %}
+                <li>Too Bougie/Fancy to show on here. </li>
+            {% endif %}
+        {% endfor %}
+ 
+    </ul>
+
+</body>
+</html>

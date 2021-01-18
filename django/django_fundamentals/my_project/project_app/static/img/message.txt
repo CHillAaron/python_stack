@@ -1,0 +1,47 @@
+louck@LAPTOP-2VJJ96TO MINGW64 ~/Desktop/Python/_python/Django/dojo_ninjas_proj
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0002_auto_20201220_2054...Traceback (most recent call last):
+  File "C:\Users\louck\Desktop\Python\_python\Django\dojo_ninjas_proj\manage.py", line 21, in <module>
+    main()
+  File "C:\Users\louck\Desktop\Python\_python\Django\dojo_ninjas_proj\manage.py", line 17, in main
+    execute_from_command_line(sys.argv)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\core\management\__init__.py", line 381, in execute_from_command_line
+    utility.execute()
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\core\management\__init__.py", line 375, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\core\management\base.py", line 323, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\core\management\base.py", line 364, in execute
+    output = self.handle(*args, **options)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\core\management\base.py", line 83, in wrapped
+    res = handle_func(*args, **kwargs)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\core\management\commands\migrate.py", line 232, in handle
+    post_migrate_state = executor.migrate(
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\migrations\executor.py", line 117, in migrate
+    state = self._migrate_all_forwards(state, plan, full_plan, fake=fake, fake_initial=fake_initial)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\migrations\executor.py", line 147, in _migrate_all_forwards
+    state = self.apply_migration(state, migration, fake=fake, fake_initial=fake_initial)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\migrations\executor.py", line 245, in apply_migration
+    state = migration.apply(state, schema_editor)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\migrations\migration.py", line 124, in apply
+    operation.database_forwards(self.app_label, schema_editor, old_state, project_state)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\migrations\operations\fields.py", line 110, in database_forwards
+    schema_editor.add_field(
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\backends\sqlite3\schema.py", line 327, in add_field
+    self._remake_table(model, create_field=field)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\backends\sqlite3\schema.py", line 188, in _remake_table
+    self.effective_default(create_field)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\backends\base\schema.py", line 233, in effective_default
+    return field.get_db_prep_save(self._effective_default(field), self.connection)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\models\fields\related.py", line 937, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\models\fields\__init__.py", line 789, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\models\fields\__init__.py", line 957, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\louck\Desktop\Python\my_environments\djangoPy3Env\lib\site-packages\django\db\models\fields\__init__.py", line 966, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'datetime.datetime'

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here is the information you submitted!</h1>
+    {{formInfo}}
+    <h3>Your name: {{formInfo.name}}</h3>
+    <h3>The Dojo you are learning from: {{formInfo.location}}</h3>
+    <h3>Your favorite language: {{formInfo.language}}</h3>
+    <h3>random message you wanted to give us: {{formInfo.comment}}</h3>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <h1>Check out All the Products we got!</h1>
+    <p>{{allProds}}</p>
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price(in Us Dollars)</th>
+          <th>Info About this Product</th>
+        </tr>
+        {% for productObj in allProds %}
+        <tr>
+          <td>{{productObj.id}}</td>
+          <td>{{productObj.name}}</td>
+          <td>{{productObj.price}}</td>
+          <td>{{productObj.description}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <h1>Add a new product:</h1>
+      <form action="/createProduct" method="post">
+          {% csrf_token %}
+          <p>Product Name: <input type="text" name="prodname" id=""></p>
+          <p>Price: <input type="number" name = "dollas" step="0.01"></p>
+          <p>More Info: <textarea name="desc" id="" cols="30" rows="10"></textarea></p>
+          <p><input type="submit" value="Add Product"></p>
+
+      </form>
+</body>
+</html>

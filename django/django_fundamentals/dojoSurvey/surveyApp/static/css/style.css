@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    background-color: darkblue;
+    color:white;
+}
+
+h1 {
+    color: blue;
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

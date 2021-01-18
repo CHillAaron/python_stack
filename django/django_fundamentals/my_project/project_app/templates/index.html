@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: black;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items : center;
+            color: white;
+            background-color: gray;
+            margin: 0;
+            margin-top: 15%;
+        }
+        .logIn{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1{
+            font-size: 75px;
+            /* color: rgb(253, 135, 92); */
+            color:floralwhite;
+        }
+        span{
+            color: rgb(4, 188, 212);
+            /* color: rgb(99, 116, 141); */
+            /* color: coral; */
+            font-style: italic;
+            /* text-shadow: 5px 5px rgb(247, 245, 167); */
+            /* text-shadow: 5px 5px rgb(0, 0, 0); */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logIn">
+            <h2>Business Log in</h2>
+            <form action="logIn" method="post">
+                {% csrf_token %}
+                <p>
+                    email: <input type="text" name="email"></p>
+                    <p>password: <input type="text" name="password"></p>
+                    <input type="submit" value="log In"> 
+                </p>
+            </form>
+        </div>
+        <h1>cr<span>o</span>wd<span>N</span>et</h1>
+        <div class="logIn">
+            <h2>Personal Log In</h2>
+            <form action="logIn" method="post">
+                {% csrf_token %}
+                <p>
+                    email: <input type="text" name="email"></p>
+                    <p>password: <input type="text" name="password"></p>
+                    <p><input type="submit" value="log In"> <button><a href="/signUp">Sign Up</a></button></p> 
+                </p>
+            </form>
+        </div>
+    </header>
+    {% if messages %}
+        <ul>
+            {% for x in messages %}
+            <li style= "color:red";>{{x}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+        
+</body>
+</html>

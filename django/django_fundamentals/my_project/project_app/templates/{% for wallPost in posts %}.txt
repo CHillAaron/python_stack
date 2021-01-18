@@ -1,0 +1,33 @@
+
+
+{% for wallPost in posts %}
+                        <div class="flex-fill blogPost" cstyle="border-style: solid;border-color: var(--danger);padding: 20px;">
+                                <p> <a href="profile/{{x.usersPost.id}}">{{wallPost.usersPost.first}} {{wallPost.usersPost.last}}</a></p>
+                                <p class="blogBody" style="border-style: solid;border-color: var(--dark);">{{wallPost.body}}</p>
+                                <p class="postTime">{{wallPost.created_at}}</p>
+                                    {% for replyPost in wallPost.posts_comment.all %}
+                                        <div class="replies">
+                                            <p>{{replyPost.usersComment.first}} {{replyPost.usersComment.last}}</p>
+                                            <p style="border-style: solid;border-color: var(--dark);">{{replyPost.reply}}</p>
+                                            <p>{{replyPost.created_at}}</p>
+                                        </div>
+                                    {% endfor %}
+                                    <form action="newReply" method="post">
+                                        {%csrf_token%}
+                                        <input type="text" name="reply">
+                                        <input type="hidden" name="postId" value='{{wallPost.id}}'>
+                                        <input type="submit" value="reply">
+                                    </form>
+
+                                <div class="btn-group"><button class="btn btn-primary" type="button">Reply </button>
+                                    {% if wallPost.usersPost.email == loggedIn.email %}
+                                        <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false" type="button"></button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="/deleteCrowdPost/{{wallPost.id}}">Delete</a>
+                                            <a class="dropdown-item" href="#">Edit</a>
+                                            <a class="dropdown-item" href="#"></a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                        </div>
+{% endfor %}

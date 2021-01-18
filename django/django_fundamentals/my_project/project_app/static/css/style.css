@@ -1,0 +1,21 @@
+body{
+
+        /* background-image: url('https://cdn.shopify.com/s/files/1/1079/5890/products/COBRAKAICIRCLEPUZZLE-01_1800x1800.jpg?v=1598717174'); */
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin: 20px;
+    border-top: 5px black solid;
+    border-bottom: 5px rgb(4, 188, 212) solid;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+#blog{
+    text-align: center;
+}

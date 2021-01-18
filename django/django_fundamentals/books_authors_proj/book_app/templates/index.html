@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #holder {
+            display:flex;
+            justify-content: space-around;
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            vertical-align: top;
+        }
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <div id="holder">
+        <div class="box">
+            <h1>Add a book</h1>
+            <form action="addBook" method="post">
+                {% csrf_token %}
+                <p>Title: <input type="text" name="title" id=""> </p>
+                <p>Description: <textarea name="desc" id="" cols="20" rows="5"></textarea></p>
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        <div class="box">
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+                {% for x in books %}
+                    <tr>
+                        <td>{{x.id}}</td>
+                        <td>{{x.title}}</td>
+                        <td><a href="bookInfo/{{x.id}}">View</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

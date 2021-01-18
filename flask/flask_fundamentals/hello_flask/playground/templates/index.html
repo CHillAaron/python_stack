@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box_contain{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+        .box{
+            
+            width: 400px; 
+            height: 300px;  
+            margin:20px;       
+            background-color: {{color_choice}};
+            }
+</style>
+</head>
+<body>
+    <h1 style="text-align: center;">Welcome!</h1>
+    <div id="box_contain">
+        {% for x in range(0,num_times): %}
+        <div class="box"> </div>
+        {% endfor %}
+        
+        <!-- <div class="box">  -->
+    </div>
+</body>
+</html>

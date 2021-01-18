@@ -1,0 +1,27 @@
+python manage.py migrate --run-syncdb
+python manage.py shell
+DojoSai.objects.create(name='do', city='Denver', state='Co')
+DojoSai.objects.create(name='jo', city='Atlanta', state='GA')
+DojoSai.objects.create(name='dojojo', city='Louisville', state='KY')
+c = DojoSai.objects.get(id=1)  -->c.delete()
+c = DojoSai.objects.get(id=2) --> c.delete()
+c = DojoSai.objects.get(id=3) --> c.delete()
+DojoSai.objects.create(name='Cobra Kai', city='Los Angeles', state='CA')
+DojoSai.objects.create(name='Miyagi-Do', city='Los Angeles', state='CA')
+DojoSai.objects.create(name='kung-fu', city='Louisville', state='KY')
+Ninja.objects.create(first_name="Johnny", last_name="Lawrence", dojos=cobra)
+Ninja.objects.create(first_name="Miguel", last_name="Diaz", dojos=cobra)
+Ninja.objects.create(first_name="Tory", last_name="Nichols", dojos=cobra)
+Ninja.objects.create(first_name="Daniel", last_name="LaRusso", dojos=Miyagi)
+Ninja.objects.create(first_name="Samantha", last_name="LaRusso", dojos=Miyagi)
+Ninja.objects.create(first_name="Robbiy", last_name="Keene", dojos=Miyagi)
+Ninja.objects.create(first_name="Yip", last_name="Man", dojos=kungFu)
+Ninja.objects.create(first_name="Bruce", last_name="Lee", dojos=kungFu)
+Ninja.objects.create(first_name="Chuck", last_name="Norris", dojos=kungFu)
+print(DojoSai.objects.first().ninjas.all()) --> DojoSai.objects.first().ninjas.get()
+print(DojoSai.objects.last().ninjas.all()) --> DojoSai.objects.last().ninjas.get()
+print(Ninja.objects.last().dojos)
+exit()
+python manage.py shell
+from dojo_app.models import *
+DojoSai.objects.create(name="Smooth Criminal", city="Montgomery", state="AL")

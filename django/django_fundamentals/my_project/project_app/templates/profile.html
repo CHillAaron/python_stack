@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    <!-- <style>
+        body{
+            /* background-color: blue; */
+        background-image: url('https://cdn.shopify.com/s/files/1/1079/5890/products/COBRAKAICIRCLEPUZZLE-01_1800x1800.jpg?v=1598717174');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        } -->
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Logo goes here</h1>
+        <p><div class="header"> <a href="logout">Edit Page</a> | <a href="logout">Log Out</a></p></div>
+    </header>
+    <div id="wrapper">
+        <h2> Welcome, {{loggedIn.first}} {{loggedIn.last}}!</h2>
+        <img src="{% static '/img/Johnny.jpeg' %}" /><br>   
+
+
+        <div id='blog'>
+                <h2>What is on your mind?</h2>
+                <div class="post">
+                    <form action="newPost" method="post">
+                        {%csrf_token%}
+                        <p>What are you thinking?<textarea name="body" cols="30" rows="10"></textarea></p>
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+            
+            <div class="posts">
+                <table>
+                    {% for x in posts %}
+                        <ul>
+                            <li>{% if x.usersPost.email == loggedIn.email %}<button><a href="/deletePost/{{x.id}}">Delete</a></button> - {% endif %}
+                             {{x.body}}  Posted by: {{x.usersPost.first}} {{x.usersPost.last}}<br><br>
+                                <form action="reply" method="post">
+                                    {%csrf_token%}
+                                    <input type="text" name="reply">
+                                    <input type="hidden" name="postId" value='{{x.id}}'>
+                                    <input type="submit" value="reply">
+                                </form>    
+                            </li>
+                                {% for j in x.posts_comment.all %}
+                                    <ul> 
+                                        <li>
+                                            <li>{% if x.usersPost.email == loggedIn.email %}<button><a href="/deleteReply/{{j.id}}"></a>Delete</a></button> - {% endif %}
+                                            {{j.reply}} --- replied by: {{j.usersComment.first}} {{j.usersComment.last}}</li>
+                                    </ul>
+                                {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
